@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Add comuna</h1>
-        <form method="POST" action="{{ route('comunas.store') }}>
+        <form method="POST" action="{{ route('comunas.store') }}">
             @csrf
             <div class="mb-3">
                 <label for="id" class="form-label">Code</label>
