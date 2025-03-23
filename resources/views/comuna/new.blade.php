@@ -18,6 +18,7 @@
                 <label for="id" class="form-label">Code</label>
                 <input type="text" class="form-control" id="id" aria-describedby="idHelp" neme="id" disabled>
                 <div id="idHelp" class="form-text">Commune Code</div>
+            </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Commune</label>
                 <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Comuna name.">
