@@ -32,7 +32,7 @@
                     <tr>
                         <th scope="row">{{ $comuna->comu_codi }}</th>
                         <td>{{ $comuna->comu_nomb }}</td>
-                        <td>{{ $comuna->comu_muni_nomb }}</td>
+                        <td>{{ $comuna->muni_nomb }}</td>
                         <td><span> Actions </span></td>
                     </tr>
                 @endforeach
