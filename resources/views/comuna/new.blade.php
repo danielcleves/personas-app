@@ -21,13 +21,14 @@
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Commune</label>
-                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name" placeholder="Comuna name.">
+                <input type="text" class="form-control" id="name" aria-describedby="nameHelp" name="name"
+                    placeholder="Comuna name.">
             </div>
 
             <label for="municipality">Municipality</label>
             <select class="form-select" id="municipality" name="code" required>
                 <option selected disabled value="">Choose one...</option>
-                @foreach ( $munipios as $municipio )
+                @foreach ($municipios as $municipio)
                     <option value="{{ $municipio->muni_codi }}">{{ $municipio->muni_nomb }}</option>
                 @endforeach
             </select>
