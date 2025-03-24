@@ -61,7 +61,11 @@ class MunicipiosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $municipio = Municipio::find($id);
+        $departamentos = DB::table('tb_departamento')
+            ->orderBy('muni_nomb')
+            ->get();
+        return view('municipio.edit', ['municipio' => $municipio, 'departamentos' => $departamentos]);
     }
 
     /**
