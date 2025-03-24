@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Municipio;
 
 class MunicipiosController extends Controller
 {
@@ -35,7 +36,16 @@ class MunicipiosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $municipio = new Municipio();
+        $municipio->comu_nomb = $request->name;
+        $municipio->muni_codi = $request->code;
+        $municipio->save();
+
+        $municipios = DB::table('tb_municipio')
+            ->join('tb_municipio', 'tb_municipio.muni_codi', '=', 'tb_municipio.muni_codi')
+            ->select('tb_municipio.*', 'tb_municipio.muni_nomb')
+            ->get();
+        return view("municipio.index", ['municipios' => $municipios]);
     }
 
     /**
