@@ -73,7 +73,18 @@ class MunicipiosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $municipio = Municipio::find($id);
+
+        $municipio->muni_nomb = $request->name;
+        $municipio->depa_codi = $request->code;
+        $municipio->save();
+
+        $municipios = DB::table('tb_municipio')
+            ->join('tb_municipio', 'tb_municipio.muni_codi', '=', 'tb_municipio.muni_codi')
+            ->select('tb_municipio.*', 'tb_municipio.muni_nomb')
+            ->get();
+
+        return view("municipio.index", ['municipios' => $municipios]);
     }
 
     /**
