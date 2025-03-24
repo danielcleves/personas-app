@@ -12,7 +12,11 @@ class MunicipiosController extends Controller
      */
     public function index()
     {
-        //
+        $municipios = DB::table('tb_municipio')
+            ->join('tb_municipio', 'tb_departamento.depa_codi', '=', 'tb_municipio.muni_codi')
+            ->select('tb_municipio.*', 'tb_municipio.muni_nomb')
+            ->get();
+        return view("municipio.index", ['municipios' => $municipios]);
     }
 
     /**
