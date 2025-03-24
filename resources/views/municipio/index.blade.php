@@ -34,8 +34,8 @@
                         <td>{{ $municipio->muni_nomb }}</td>
                         <td>{{ $municipio->depa_nomb }}</td>
                         <td>
-                            <a href="{{ route('municipios.edit', ['municipio' => $municipio->comu_codi]) }}" class="btn btn-info">Edit</a>
-                            <form action="{{ route('municipios.destroy', ['municipio' => $municipio->comu_codi]) }}" method="post" style="display: inline-block">
+                            <a href="{{ route('municipios.edit', ['municipio' => $municipio->muni_codi]) }}" class="btn btn-info">Edit</a>
+                            <form action="{{ route('municipios.destroy', ['municipio' => $municipio->muni_codi]) }}" method="post" style="display: inline-block">
                                 @method('delete')
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Delete">
