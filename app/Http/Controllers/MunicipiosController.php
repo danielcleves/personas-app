@@ -24,7 +24,10 @@ class MunicipiosController extends Controller
      */
     public function create()
     {
-        //
+        $municipios = DB::table('tb_departamento')
+            ->orderBy('depa_nomb')
+            ->get();
+        return view('municipio.new', ['municipios' => $municipios]);
     }
 
     /**
