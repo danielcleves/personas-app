@@ -3,6 +3,7 @@
 use App\Http\Controllers\ComunaController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\MunicipioController;
+use App\Http\Controllers\PaisController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,3 +33,11 @@ Route::get('/departamentos/create', [DepartamentoController::class, 'create'])->
 Route::delete('/departamentos/{departamento}', [DepartamentoController::class, 'destroy'])->name('departamentos.destroy');
 Route::put('/departamentos/{departamento}', [DepartamentoController::class, 'update'])->name('departamentos.update');
 Route::get('/departamentos/{departamento}/edit', [DepartamentoController::class, 'edit'])->name('departamentos.edit');
+
+// Paises
+Route::get('/paises', [PaisController::class, 'index'])->name('paises.index');
+Route::post('/paises', [PaisController::class, 'store'])->name('paises.store');
+Route::get('/paises/create', [PaisController::class, 'create'])->name('paises.create');
+Route::delete('/paises/{pais}', [PaisController::class, 'destroy'])->name('paises.destroy');
+Route::put('/paises/{pais}', [PaisController::class, 'update'])->name('paises.update');
+Route::get('/paises/{pais}/edit', [PaisController::class, 'edit'])->name('paises.edit');
