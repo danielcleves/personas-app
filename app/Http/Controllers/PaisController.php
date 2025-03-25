@@ -39,6 +39,7 @@ class PaisController extends Controller
     public function store(Request $request)
     {
         $pais = new Pais();
+        $pais->pais_codi = $request->id;
         $pais->pais_nomb = $request->name;
         $pais->pais_capi = $request->code;
         $pais->save();
