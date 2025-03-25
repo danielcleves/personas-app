@@ -16,7 +16,7 @@ class PaisController extends Controller
     public function index()
     {
         $paises = DB::table('tb_pais')
-            ->join('tb_municipio', 'tb_pais.capi_codi', '=', 'tb_municipio.muni_codi')
+            ->join('tb_municipio', 'tb_pais.pais_capi', '=', 'tb_municipio.muni_codi')
             ->select('tb_pais.*', 'tb_municipio.muni_nomb')
             ->get();
         return view("pais.index", ['paises' => $paises]);
@@ -40,11 +40,11 @@ class PaisController extends Controller
     {
         $pais = new Pais();
         $pais->pais_nomb = $request->name;
-        $pais->capi_codi = $request->code;
+        $pais->pais_capi = $request->code;
         $pais->save();
 
         $paises = DB::table('tb_pais')
-            ->join('tb_municipio', 'tb_pais.capi_codi', '=', 'tb_municipio.muni_codi')
+            ->join('tb_municipio', 'tb_pais.pais_capi', '=', 'tb_municipio.muni_codi')
             ->select('tb_pais.*', 'tb_municipio.muni_nomb')
             ->get();
         return view("pais.index", ['paises' => $paises]);
@@ -78,11 +78,11 @@ class PaisController extends Controller
         $pais = Pais::find($id);
 
         $pais->pais_nomb = $request->name;
-        $pais->capi_codi = $request->code;
+        $pais->pais_capi = $request->code;
         $pais->save();
 
         $paises = DB::table('tb_pais')
-            ->join('tb_municipio', 'tb_pais.capi_codi', '=', 'tb_municipio.muni_codi')
+            ->join('tb_municipio', 'tb_pais.pais_capi', '=', 'tb_municipio.muni_codi')
             ->select('tb_pais.*', 'tb_municipio.muni_nomb')
             ->get();
 
@@ -98,7 +98,7 @@ class PaisController extends Controller
         $pais->delete();
 
         $paises = DB::table('tb_pais')
-            ->join('tb_municipio', 'tb_pais.capi_codi', '=', 'tb_municipio.muni_codi')
+            ->join('tb_municipio', 'tb_pais.pais_capi', '=', 'tb_municipio.muni_codi')
             ->select('tb_pais.*', 'tb_municipio.muni_nomb')
             ->get();
 
