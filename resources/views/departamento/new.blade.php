@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <h1>Add departamento</h1>
-        <form method="POST" action="{{ route('comunas.store') }}">
+        <form method="POST" action="{{ route('departamentos.store') }}">
             @csrf
             <div class="mb-3">
                 <label for="id" class="form-label">Code</label>
@@ -25,11 +25,11 @@
                     placeholder="Departamento name.">
             </div>
 
-            <label for="municipality">Pais</label>
-            <select class="form-select" id="municipality" name="code" required>
+            <label for="country">Pais</label>
+            <select class="form-select" id="country" name="code" required>
                 <option selected disabled value="">Choose one...</option>
-                @foreach ($municipios as $municipio)
-                    <option value="{{ $municipio->muni_codi }}">{{ $municipio->muni_nomb }}</option>
+                @foreach ($paises as $pais)
+                    <option value="{{ $pais->pais_codi }}">{{ $pais->pais_nomb }}</option>
                 @endforeach
             </select>
 

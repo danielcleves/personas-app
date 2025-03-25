@@ -9,6 +9,6 @@ class Departamento extends Model
 {
     use HasFactory;
     protected $table = 'tb_departamento';
-    protected $primaryKey = 'depa_codi ';
+    protected $primaryKey = 'depa_codi';
     public $timestamps = false;
 }
